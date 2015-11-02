@@ -58,7 +58,6 @@ public class SplashActivity extends Activity implements Handler.Callback {
     private void init() {
         mHandler = new Handler(this);
         if (CommonUtil.isUpdateMode(this)) {
-            SharePerferencesUtil.saveVersion(this);
             showSplash();
         } else {
             showStartPage(SHOW_START_PAGE, 3000);
@@ -152,6 +151,7 @@ public class SplashActivity extends Activity implements Handler.Callback {
      * 进入app主界面
      */
     private void loadMainAPP() {
+        SharePerferencesUtil.saveVersion(this);
         startActivity(new Intent(this, MainActivity.class));
         finish();
     }
